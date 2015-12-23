@@ -3,6 +3,7 @@ $prenom = document.getElementById("prenom");
 $nom = document.getElementById("nom");
 $numero = document.getElementById("numero");
 $ajouter = document.getElementById("ajouter");
+$annuler = document.getElementById("Annuler");
 $recherche = document.getElementById("recherche");
 $rechercher = document.getElementById("rechercher");
 $resultats = document.getElementById("resultats");
@@ -39,7 +40,14 @@ function ajouter() {
     });
     afficherListe();
 }
-
+function annuler(){
+    contacts.pop(){
+      prenom;
+      nom;
+      numero;
+    };
+    afficherListe();
+}
 function rechercher() {
     recherche = $recherche.value;
     elements = "";
@@ -52,6 +60,7 @@ function rechercher() {
 }
 
 $ajouter.onclick = ajouter;
+$annuler.onclick= annuler;
 $rechercher.onclick = rechercher;
 afficherListe();
 /*
