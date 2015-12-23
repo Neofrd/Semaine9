@@ -8,6 +8,10 @@ $recherche = document.getElementById("recherche");
 $rechercher = document.getElementById("rechercher");
 $resultats = document.getElementById("resultats");
 
+$liste2 = document.getElementById("liste2");
+$supprimer = document.getElementById("supprimer");
+$restaurer = document.getElementById("restaurer");
+
 var contacts = [{
   prenom: "Julien",
   nom: "Grillot",
@@ -41,11 +45,7 @@ function ajouter() {
     afficherListe();
 }
 function annuler(){
-    contacts.pop(){
-      prenom;
-      nom;
-      numero;
-    };
+    contacts.pop();
     afficherListe();
 }
 function rechercher() {
@@ -63,6 +63,30 @@ $ajouter.onclick = ajouter;
 $annuler.onclick= annuler;
 $rechercher.onclick = rechercher;
 afficherListe();
+
+function selectionne(e){
+  //e.target correspond au <li> qui a été cliqué dans le <ul>!
+  e.target.classList.toggle("selected");
+}
+
+function supprimer() {
+    for (i = 0; i < $liste2.children.length; i++) {
+        if ($liste2.children[i].classList.contains("selected")) {
+            $liste2.children[i].classList.add("poubelle");
+        }
+    }
+}
+
+function restaurer() {
+    for (i = 0; i < $liste2.children.length; i++) {
+        $liste2.children[i].classList.remove("poubelle");
+    }
+}
+
+$liste2.onclick = selectionne;
+$supprimer.onclick = supprimer;
+$restaurer.onclick = restaurer;
+
 /*
 tableau = ["Bob", "Julien", "Roger"];
 $element = document.getElementbyid("liste");
